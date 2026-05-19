@@ -11,7 +11,7 @@ body {
 
 /* Стилізація заголовка */
 header {
-    background-color: #4CAF50;
+    background-color: #2244aa;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-    color: #4CAF50;
+    color: #2244aa;
     margin-top: 20px;
 }
 
