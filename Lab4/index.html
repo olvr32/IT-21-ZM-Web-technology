@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота 4: Вступ до JavaScript</title>
+</head>
+<body>
+  <h1>Лабораторна робота 4: Вступ до JavaScript</h1>
+  <p>Відкрийте консоль розробника (F12 -> Console), щоб побачити дублювання результатів.</p>
+  
+  <script>
+    // ========================================================
+    // Завдання 1: Привітання користувача
+    // ========================================================
+    console.log("--- Завдання 1 ---");
+    
+    let userName = prompt("Введіть своє ім'я:");
+    
+    // Перевіряємо, чи користувач не натиснув "Скасувати" або не залишив рядок порожнім
+    if (!userName) {
+        userName = "Гість";
+    }
+    
+    let greetingMessage = "Привіт, " + userName + "! Радий тебе бачити!";
+    
+    alert(greetingMessage);
+    console.log(greetingMessage);
+
+
+    // ========================================================
+    // Завдання 2: Проста арифметика (Варіант №3 - НЕПАРНИЙ)
+    // ========================================================
+    console.log("--- Завдання 2 ---");
+    
+    // Запитуємо два числа та одразу перетворюємо їх з тексту на тип Number
+    let num1 = Number(prompt("Введіть перше число:"));
+    let num2 = Number(prompt("Введіть друге число:"));
+    
+    // Оскільки варіант НЕПАРНИЙ — рахуємо добуток та частку
+    let product = num1 * num2;
+    let quotient = num2 !== 0 ? (num1 / num2) : "ділення на нуль неможливе";
+    
+    let arithmeticResult = "Добуток: " + product + "\nЧастка: " + quotient;
+    
+    alert(arithmeticResult);
+    console.log("Перше число: " + num1 + ", Друге число: " + num2);
+    console.log(arithmeticResult);
+
+
+    // ========================================================
+    // Завдання 3: Вік користувача та порівняння
+    // ========================================================
+    console.log("--- Завдання 3 ---");
+    
+    let birthYear = Number(prompt("Введіть ваш рік народження:"));
+    const CURRENT_YEAR = 2026; // Поточний рік
+    const MY_AGE = 19;        // Твій вік (константа, змініть за потреби)
+    
+    // Обчислюємо вік користувача
+    let userAge = CURRENT_YEAR - birthYear;
+    
+    // Знаходимо абсолютну різницю у віці (модуль числа)
+    let ageDifference = Math.abs(userAge - MY_AGE);
+    
+    let ageStatus = "";
+    
+    // Перевірка за допомогою оператора if / else
+    if (userAge > MY_AGE) {
+        ageStatus = "Користувач старший на " + ageDifference + " років.";
+    } else if (userAge < MY_AGE) {
+        ageStatus = "Користувач молодший на " + ageDifference + " років.";
+    } else {
+        ageStatus = "Користувач є вашим однолітком!";
+    }
+    
+    let finalAgeMessage = "Поточний вік користувача: " + userAge + " р.\n" + ageStatus;
+    
+    alert(finalAgeMessage);
+    console.log(finalAgeMessage);
+    
+  </script>
+</body>
+</html>
