@@ -1,0 +1,89 @@
+/* ========================================= */
+/* ЗАГАЛЬНІ СТИЛІ (ДЕФОЛТ ДЛЯ ДЕСКТОПІВ)      */
+/* ========================================= */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eef;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1, footer p {
+  margin: 0;
+}
+
+/* Контейнер-галерея (Flexbox за замовчуванням) */
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;            /* Дозволяє карткам переноситися на нові рядки */
+  justify-content: center;    /* Центрує картки по горизонталі */
+  align-items: flex-start;    /* Вирівнює картки по верхньому краю */
+  padding: 40px 20px;
+  gap: 30px;                  /* Сучасний чистий відступ між блоками */
+}
+
+/* Картки галереї (Демонстрація Box Model) */
+.box {
+  background-color: #fff;
+  border: 1px solid #333;
+  padding: 15px;
+  width: 180px;               /* Фіксована ширина картки */
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Легка тінь для краси */
+}
+
+.box img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+.box p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+  margin: 10px 0 0 0;
+}
+
+/* ========================================= */
+/* МЕДІА-ЗАПИТ ДЛЯ ПЛАНШЕТІВ (ДО 1024px)     */
+/* ========================================= */
+@media (max-width: 1024px) {
+  .container {
+    gap: 20px;
+    padding: 20px 10px;
+  }
+}
+
+/* ========================================= */
+/* МЕДІА-ЗАПИТ ДЛЯ МОБІЛОК (ДО 768px)        */
+/* ========================================= */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;   /* Перебудова блоків у стовпчик (вертикально) */
+    align-items: center;      /* Центрування карток на екрані телефону */
+  }
+
+  .box {
+    width: 80%;               /* Картки стають ширшими на весь екран телефону */
+    max-width: 280px;
+    background-color: #d4edda; /* Зміна кольору заливки блоків на світло-зелений */
+    font-family: 'Georgia', serif; /* Зміна сімейства шрифту */
+  }
+
+  .box p {
+    font-size: 12px;          /* Зменшення розміру шрифту для тексту */
+  }
+  
+  header h1 {
+    font-size: 1.8em;         /* Зменшення заголовка на мобілці */
+  }
+}
