@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота 5: Маніпуляція DOM та обробка подій</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Маніпуляція DOM та обробка подій</h1>
+  </header>
+
+  <main>
+    <section class="demo-section">
+      <h2>Зміна вмісту елемента</h2>
+      <p id="text-to-change">Початковий текст, який буде змінено за допомогою JavaScript.</p>
+      <button id="btn-change-text">Змінити текст</button>
+    </section>
+
+    <section class="demo-section">
+      <h2>Обробка подій</h2>
+      <button id="btn-hover">Наведіть курсор на мене</button>
+      <p id="hover-status">Наведіть курсор на кнопку вище, щоб побачити зміну стилю</p>
+    </section>
+
+    <section class="demo-section">
+      <h2>Додавання нового елемента</h2>
+      <button id="btn-add-element">Додати елемент</button>
+      <div id="elements-container">
+        </div>
+    </section>
+
+    <section class="demo-section variant-section">
+      <h2>Додаткове завдання (Варіант 3)</h2>
+      <button id="btn-variant">Натисніть 3 разів!</button>
+      <p id="click-counter">Залишилось кліків: 3</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Лабораторна робота 5. JavaScript, DOM, події.</p>
+  </footer>
+
+  <script>
+    // === 1. ЗМІНА ВМІСТУ ЕЛЕМЕНТА ===
+    const textToChange = document.getElementById('text-to-change');
+    const btnChangeText = document.getElementById('btn-change-text');
+
+    btnChangeText.addEventListener('click', function() {
+      textToChange.textContent = "Текст змінено! Це новий вміст.";
+    });
+
+
+    // === 2. ОБРОБКА ПОДІЙ (НАВЕДЕННЯ КУРСОРУ) ===
+    const btnHover = document.getElementById('btn-hover');
+    const hoverStatus = document.getElementById('hover-status');
+
+    btnHover.addEventListener('mouseover', function() {
+      // Зміна стилю тексту при наведенні курсору
+      hoverStatus.style.color = '#4CAF50';
+      hoverStatus.style.fontWeight = 'bold';
+      hoverStatus.style.fontSize = '1.1em';
+      hoverStatus.textContent = "Курсор наведено на кнопку! Стиль змінено.";
+    });
+
+    btnHover.addEventListener('mouseout', function() {
+      // Повернення стилю до початкового стану
+      hoverStatus.style.color = '#333';
+      hoverStatus.style.fontWeight = 'normal';
+      hoverStatus.style.fontSize = '1em';
+      hoverStatus.textContent = "Наведіть курсор на кнопку вище, щоб побачити зміну стилю";
+    });
+
+
+    // === 3. ДИНАМІЧНЕ ДОДАВАННЯ ЕЛЕМЕНТІВ ===
+    const btnAddElement = document.getElementById('btn-add-element');
+    const elementsContainer = document.getElementById('elements-container');
+
+    btnAddElement.addEventListener('click', function() {
+      // Створюємо новий div-рядок
+      const newRow = document.createElement('div');
+      newRow.className = 'added-item';
+      newRow.textContent = 'Це новий доданий елемент.';
+      
+      // Додаємо можливість видалити елемент при кліку на нього (для повноти лабораторної)
+      newRow.addEventListener('click', function() {
+        newRow.remove();
+      });
+
+      // Вставляємо елемент у контейнер
+      elementsContainer.appendChild(newRow);
+    });
+
+
+    // === 4. ДОДАТКОВЕ ЗАВДАННЯ (ВАРІАНТ №3) ===
+    const btnVariant = document.getElementById('btn-variant');
+    const clickCounter = document.getElementById('click-counter');
+    let clickCount = 0;
+    const TARGET_CLICKS = 3; // Твій варіант n=3
+
+    btnVariant.addEventListener('click', function() {
+      clickCount++;
+      let remaining = TARGET_CLICKS - clickCount;
+      
+      if (remaining > 0) {
+        clickCounter.textContent = "Залишилось кліків: " + remaining;
+      } else {
+        clickCounter.textContent = "Завдання виконано!";
+        alert("Матвій Запорожцев варіант номер 3!");
+        clickCount = 0; // Скидаємо лічильник для повторного тесту
+      }
+    });
+  </script>
+</body>
+</html>

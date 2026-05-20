@@ -1,0 +1,111 @@
+/* Базові системні стилі сторінки */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #eaeaea;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Стилізація секцій як на макеті */
+.demo-section {
+  margin-bottom: 30px;
+}
+
+.demo-section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.demo-section p {
+  font-size: 15px;
+  color: #444;
+  margin: 10px 0;
+}
+
+/* Кнопки */
+button {
+  background-color: #f0f0f0;
+  border: 1px solid #a6a6a6;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+  border-color: #7a7a7a;
+}
+
+/* Рядки, що додаються динамічно */
+#elements-container {
+  margin-top: 15px;
+}
+
+.added-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  animation: fadeIn 0.3s ease;
+  cursor: pointer;
+}
+
+.added-item:hover {
+  background-color: #fff0f0;
+  border-color: #ff9999; /* Підсвітка при наведенні, натяк що можна видалити */
+}
+
+/* Окремий стиль для секції варіанту */
+.variant-section {
+  background-color: #fffdf0;
+  padding: 15px;
+  border: 1px dashed #ffd700;
+  border-radius: 4px;
+}
+
+footer {
+  background-color: #eaeaea;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Анімація появи нових блоків */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
