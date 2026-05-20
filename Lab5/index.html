@@ -44,7 +44,6 @@
   </footer>
 
   <script>
-    // === 1. ЗМІНА ВМІСТУ ЕЛЕМЕНТА ===
     const textToChange = document.getElementById('text-to-change');
     const btnChangeText = document.getElementById('btn-change-text');
 
@@ -53,12 +52,10 @@
     });
 
 
-    // === 2. ОБРОБКА ПОДІЙ (НАВЕДЕННЯ КУРСОРУ) ===
     const btnHover = document.getElementById('btn-hover');
     const hoverStatus = document.getElementById('hover-status');
 
     btnHover.addEventListener('mouseover', function() {
-      // Зміна стилю тексту при наведенні курсору
       hoverStatus.style.color = '#4CAF50';
       hoverStatus.style.fontWeight = 'bold';
       hoverStatus.style.fontSize = '1.1em';
@@ -66,7 +63,6 @@
     });
 
     btnHover.addEventListener('mouseout', function() {
-      // Повернення стилю до початкового стану
       hoverStatus.style.color = '#333';
       hoverStatus.style.fontWeight = 'normal';
       hoverStatus.style.fontSize = '1em';
@@ -74,31 +70,25 @@
     });
 
 
-    // === 3. ДИНАМІЧНЕ ДОДАВАННЯ ЕЛЕМЕНТІВ ===
     const btnAddElement = document.getElementById('btn-add-element');
     const elementsContainer = document.getElementById('elements-container');
 
     btnAddElement.addEventListener('click', function() {
-      // Створюємо новий div-рядок
       const newRow = document.createElement('div');
       newRow.className = 'added-item';
       newRow.textContent = 'Це новий доданий елемент.';
       
-      // Додаємо можливість видалити елемент при кліку на нього (для повноти лабораторної)
       newRow.addEventListener('click', function() {
         newRow.remove();
       });
 
-      // Вставляємо елемент у контейнер
       elementsContainer.appendChild(newRow);
     });
 
-
-    // === 4. ДОДАТКОВЕ ЗАВДАННЯ (ВАРІАНТ №3) ===
     const btnVariant = document.getElementById('btn-variant');
     const clickCounter = document.getElementById('click-counter');
     let clickCount = 0;
-    const TARGET_CLICKS = 3; // Твій варіант n=3
+    const TARGET_CLICKS = 3; 
 
     btnVariant.addEventListener('click', function() {
       clickCount++;
@@ -109,7 +99,7 @@
       } else {
         clickCounter.textContent = "Завдання виконано!";
         alert("Матвій Запорожцев варіант номер 3!");
-        clickCount = 0; // Скидаємо лічильник для повторного тесту
+        clickCount = 0;
       }
     });
   </script>
