@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список справ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="container">
+    
+    <div class="header-title">
+      📋 Список справ (Варіант 3)
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 10%;">ID</th>
+            <th style="width: 65%;">Назва справи</th>
+            <th style="width: 25%;">Статус</th>
+          </tr>
+        </thead>
+        <tbody id="todos-table-body"></tbody>
+      </table>
+    </div>
+
+    <div class="action-bar">
+      <button id="btn-refresh" class="btn btn-refresh">🔄 Оновити</button>
+    </div>
+
+    <div class="form-container">
+      <div class="form-title">➕ Додати нову справу</div>
+      
+      <div class="form-group">
+        <label for="todo-title">Назва справи:</label>
+        <input type="text" id="todo-title" placeholder="Введіть назву справи">
+      </div>
+
+      <div class="form-group">
+        <label for="todo-status">Статус:</label>
+        <select id="todo-status">
+          <option value="false">🔴 Не виконано</option>
+          <option value="true">🟢 Виконано</option>
+        </select>
+      </div>
+
+      <button id="btn-add" class="btn btn-add">✔️ Додати справу</button>
+    </div>
+
+  </main>
+
+  <script>
+    const tableBody = document.getElementById('todos-table-body');
+    const btnRefresh = document.getElementById('btn-refresh');
+    const btnAdd = document.getElementById('btn-add');
+    const todoTitleInput = document.getElementById('todo-title');
+    const todoStatusSelect = document.getElementById('todo-status');
+
+    let currentIdCounter = 11;
+
+    function fetchTodos() {
+      tableBody.innerHTML = '';
+      
+      fetch('https://jsonplaceholder.typicode.com/todos')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Помилка завантаження');
+          }
+          return response.json();
+        })
+        .then(data => {
+          const firstTenTodos = data.slice(0, 10);
+          displayTodos(firstTenTodos);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+
+    function displayTodos(todos) {
+      todos.forEach(todo => {
+        appendTodoRow(todo.id, todo.title, todo.completed);
+      });
+    }
+
+    function appendTodoRow(id, title, completed) {
+      const row = document.createElement('tr');
+      
+      const statusText = completed === true || completed === 'true' ? '🟢 Виконано' : '🔴 Не виконано';
+      
+      row.innerHTML = `
+        <td>${id}</td>
+        <td>${title}</td>
+        <td>${statusText}</td>
+      `;
+      
+      tableBody.appendChild(row);
+    }
+
+    btnRefresh.addEventListener('click', fetchTodos);
+
+    btnAdd.addEventListener('click', function() {
+      const title = todoTitleInput.value.trim();
+      const completed = todoStatusSelect.value;
+
+      if (title === '') {
+        alert('Будь ласка, введіть назву справи!');
+        return;
+      }
+
+      appendTodoRow(currentIdCounter, title, completed);
+      currentIdCounter++;
+
+      todoTitleInput.value = '';
+      todoStatusSelect.value = 'false';
+    });
+
+    window.addEventListener('DOMContentLoaded', fetchTodos);
+  </script>
+</body>
+</html>

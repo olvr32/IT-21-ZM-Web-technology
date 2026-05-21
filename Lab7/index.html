@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота 7</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="container">
+    
+    <section class="task">
+      <h2>Завдання 1: Плавна зміна кольору кнопки</h2>
+      <button class="button">Інтерактивна кнопка</button>
+    </section>
+
+    <section class="task">
+      <h2>Завдання 2: Плавне розгортання текстового блоку</h2>
+      <div class="expand-wrapper">
+        <p>Наведіть сюди курсор, щоб розгорнути текст...</p>
+        <div class="content">
+          <p>Цей текстовий блок розгортається плавно завдяки використанню властивостей CSS max-height та transition при наведенні курсору миші на батьківський елемент.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="task">
+      <h2>Завдання 3: Анімація руху блоку</h2>
+      <div class="box"></div>
+    </section>
+
+    <section class="task variant-task">
+      <h2>Індивідуальне завдання (Варіант 3)</h2>
+      <button id="btn-animate-circle">Запустити анімацію кола</button>
+      <div class="circle-area">
+        <div id="moving-circle" class="circle"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const btnAnimateCircle = document.getElementById('btn-animate-circle');
+    const movingCircle = document.getElementById('moving-circle');
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    btnAnimateCircle.addEventListener('click', function() {
+      movingCircle.classList.remove('run-animation');
+      void movingCircle.offsetWidth;
+      movingCircle.classList.add('run-animation');
+    });
+
+    setInterval(function() {
+      movingCircle.style.backgroundColor = getRandomColor();
+    }, 3000);
+  </script>
+</body>
+</html>

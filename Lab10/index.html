@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфоліо розробника</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">IT.DEV</div>
+      <nav>
+        <ul>
+          <li><a href="#about">Про мене</a></li>
+          <li><a href="#skills">Навички</a></li>
+          <li><a href="#contacts">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Матвій Запорожцев</h1>
+    <p>(not a) Junior Web Developer</p>
+    <a href="#contacts" class="hero-btn">Зв'язатися</a>
+  </section>
+
+  <main class="wrapper">
+
+    <section id="about" class="glass-section">
+      <h2>Про себе</h2>
+      <p>Я студент групи ІТ-21-ЗМ, захоплююсь веб-розробкою та прагну стати професійним фронтенд розробником. Маю базові знання HTML, CSS та JavaScript, а також досвід роботи з різними проектами в рамках навчання. Вірю, що постійне навчання та практика допоможуть мені досягти моїх цілей у світі ІТ. От саме цей текст мені написав копілот в візуал студіо код. </p>
+    </section>
+
+    <section id="skills" class="glass-section">
+      <h2>Мої навички</h2>
+      <div class="skills-container">
+        <div class="skill-card">
+          <div class="skill-icon">⚡</div>
+          <h3>HTML5</h3>
+          <p>Структура, DOM.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🎨</div>
+          <h3>CSS3</h3>
+          <p>Flexbox, анімації.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">⚙️</div>
+          <h3>JavaScript</h3>
+          <p>Валідація, Fetch API.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="glass-section">
+      <h2>Зв'язатися зі мною</h2>
+      <form id="contactForm" novalidate>
+        <div class="input-wrapper">
+          <label for="user-name">Ваше ім'я</label>
+          <input type="text" id="user-name" placeholder="Олексій">
+        </div>
+
+        <div class="input-wrapper">
+          <label for="user-email">Ваш email</label>
+          <input type="email" id="user-email" placeholder="example@domain.com">
+        </div>
+
+        <div class="input-wrapper">
+          <label for="user-message">Повідомлення</label>
+          <textarea id="user-message" rows="4" placeholder="Текст вашого листа..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Надіслати</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; Дубляни Львів 2026. Створено безоплатно.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
